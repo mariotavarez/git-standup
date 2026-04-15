@@ -83,29 +83,28 @@ git-standup --format compact
 ### Example Output
 
 ```
-╔════════════════════════════════════════════════════════╗
-║  📋 Daily Standup  —  Tuesday, April 15, 2026          ║
-║  3 repos  ·  11 commits  ·  mario.tavarez             ║
-╚════════════════════════════════════════════════════════╝
+  Daily Standup — Tuesday, April 15, 2026
+  3 repos · 11 commits · mario.tavarez
+  ─────────────────────────────────────────────────────
 
-▸ react-node-editor  (4 commits)
-  ✦ a1b2c3  feat: add drag-and-drop node palette
-  ✦ b2c3d4  fix: edge connection handles on touch devices
-  ✦ c3d4e5  refactor: extract node data types to types/
-  ✦ d4e5f6  style: improve dark theme contrast
+  react-node-editor  (4 commits)
+    a1b2c3  feat: add drag-and-drop node palette
+    b2c3d4  fix: edge connection handles on touch devices
+    c3d4e5  refactor: extract node data types to types/
+    d4e5f6  style: improve dark theme contrast
 
-▸ devpulse  (4 commits)
-  ✦ e5f6g7  feat: add hardcoded-secret pattern scanner
-  ✦ f6g7h8  refactor: extract check runner to lib/
-  ✦ g7h8i9  fix: semver comparison for major versions
-  ✦ h8i9j0  docs: update README with usage examples
+  devpulse  (4 commits)
+    e5f6g7  feat: add hardcoded-secret pattern scanner
+    f6g7h8  refactor: extract check runner to lib/
+    g7h8i9  fix: semver comparison for major versions
+    h8i9j0  docs: update README with usage examples
 
-▸ ai-review-cli  (3 commits)
-  ✦ i9j0k1  feat: add ai-review explain command
-  ✦ j0k1l2  fix: demo mode mock data quality
-  ✦ k1l2m3  test: add unit tests for formatter
+  ai-review-cli  (3 commits)
+    i9j0k1  feat: add ai-review explain command
+    j0k1l2  fix: demo mode mock data quality
+    k1l2m3  test: add unit tests for formatter
 
-────────────────────────────────────────────────────────
+  ─────────────────────────────────────────────────────
   Scanned 3 repos in ~/projects  ·  Elapsed: 0.8s
   Run with --format markdown to copy to Slack/Notion
 ```
