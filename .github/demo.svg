@@ -1,0 +1,65 @@
+<svg width="820" height="540" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 540">
+  <defs>
+    <style>text { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Menlo, monospace; }</style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#010409"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="540" rx="12" fill="url(#bg)"/>
+  <rect width="820" height="42" rx="12" fill="#161b22"/>
+  <rect y="22" width="820" height="20" fill="#161b22"/>
+  <circle cx="24" cy="21" r="6.5" fill="#ff5f56"/>
+  <circle cx="46" cy="21" r="6.5" fill="#ffbd2e"/>
+  <circle cx="68" cy="21" r="6.5" fill="#27c93f"/>
+  <text x="410" y="26" font-size="12" fill="#8b949e" text-anchor="middle" dominant-baseline="middle">zsh — 82×28</text>
+
+  <!-- Command -->
+  <text x="20" y="68" font-size="13.5">
+    <tspan fill="#3fb950">❯</tspan>
+    <tspan fill="#c9d1d9"> git-standup --since </tspan><tspan fill="#a5d6ff">"2 days ago"</tspan>
+  </text>
+
+  <!-- Header box -->
+  <text x="20" y="96" font-size="13" fill="#8b949e">╔═══════════════════════════════════════════════════════════╗</text>
+  <text x="20" y="114" font-size="13">
+    <tspan fill="#8b949e">║  </tspan><tspan fill="#e3b341">📋</tspan><tspan fill="#e6edf3" font-weight="bold"> Daily Standup</tspan><tspan fill="#8b949e">  —  </tspan><tspan fill="#c9d1d9">Tuesday, April 15, 2026</tspan><tspan fill="#8b949e">         ║</tspan>
+  </text>
+  <text x="20" y="132" font-size="13">
+    <tspan fill="#8b949e">║  </tspan><tspan fill="#58a6ff">3 repos</tspan><tspan fill="#8b949e">  ·  </tspan><tspan fill="#3fb950">11 commits</tspan><tspan fill="#8b949e">  ·  </tspan><tspan fill="#bc8cff">mario.tavarez</tspan><tspan fill="#8b949e">                   ║</tspan>
+  </text>
+  <text x="20" y="150" font-size="13" fill="#8b949e">╚═══════════════════════════════════════════════════════════╝</text>
+
+  <!-- Repo 1 -->
+  <text x="20" y="178" font-size="13">
+    <tspan fill="#58a6ff" font-weight="bold">▸ react-node-editor</tspan><tspan fill="#8b949e">  (4 commits)</tspan>
+  </text>
+  <text x="20" y="196" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> a1b2c3  </tspan><tspan fill="#3fb950">feat</tspan><tspan fill="#c9d1d9">: add drag-and-drop node palette</tspan></text>
+  <text x="20" y="213" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> b2c3d4  </tspan><tspan fill="#f85149">fix</tspan><tspan fill="#c9d1d9">: edge connection handles on touch devices</tspan></text>
+  <text x="20" y="230" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> c3d4e5  </tspan><tspan fill="#d29922">refactor</tspan><tspan fill="#c9d1d9">: extract node data types to types/</tspan></text>
+  <text x="20" y="247" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> d4e5f6  </tspan><tspan fill="#8b949e">style</tspan><tspan fill="#c9d1d9">: improve dark theme contrast on canvas</tspan></text>
+
+  <!-- Repo 2 -->
+  <text x="20" y="275" font-size="13">
+    <tspan fill="#58a6ff" font-weight="bold">▸ devpulse</tspan><tspan fill="#8b949e">  (4 commits)</tspan>
+  </text>
+  <text x="20" y="293" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> e5f6g7  </tspan><tspan fill="#3fb950">feat</tspan><tspan fill="#c9d1d9">: add hardcoded-secret pattern scanner</tspan></text>
+  <text x="20" y="310" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> f6g7h8  </tspan><tspan fill="#d29922">refactor</tspan><tspan fill="#c9d1d9">: extract check runner to lib/runner.ts</tspan></text>
+  <text x="20" y="327" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> g7h8i9  </tspan><tspan fill="#f85149">fix</tspan><tspan fill="#c9d1d9">: semver comparison for major versions</tspan></text>
+  <text x="20" y="344" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> h8i9j0  </tspan><tspan fill="#58a6ff">docs</tspan><tspan fill="#c9d1d9">: update README with full usage examples</tspan></text>
+
+  <!-- Repo 3 -->
+  <text x="20" y="372" font-size="13">
+    <tspan fill="#58a6ff" font-weight="bold">▸ ai-review-cli</tspan><tspan fill="#8b949e">  (3 commits)</tspan>
+  </text>
+  <text x="20" y="390" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> i9j0k1  </tspan><tspan fill="#3fb950">feat</tspan><tspan fill="#c9d1d9">: add ai-review explain command</tspan></text>
+  <text x="20" y="407" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> j0k1l2  </tspan><tspan fill="#f85149">fix</tspan><tspan fill="#c9d1d9">: demo mode mock data quality improvement</tspan></text>
+  <text x="20" y="424" font-size="13"><tspan fill="#8b949e">  </tspan><tspan fill="#bc8cff">✦</tspan><tspan fill="#8b949e"> k1l2m3  </tspan><tspan fill="#39d353">test</tspan><tspan fill="#c9d1d9">: add unit tests for formatter module</tspan></text>
+
+  <!-- Footer -->
+  <text x="20" y="455" font-size="13" fill="#8b949e">───────────────────────────────────────────────────────────</text>
+  <text x="20" y="475" font-size="13">
+    <tspan fill="#8b949e">  Scanned </tspan><tspan fill="#58a6ff">3 repos</tspan><tspan fill="#8b949e"> in </tspan><tspan fill="#c9d1d9">~/projects</tspan><tspan fill="#8b949e">  ·  Elapsed: </tspan><tspan fill="#3fb950">0.8s</tspan>
+  </text>
+  <text x="20" y="495" font-size="13" fill="#8b949e">  Run with --format markdown to copy to Slack/Notion</text>
+</svg>
