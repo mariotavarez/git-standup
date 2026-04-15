@@ -115,7 +115,7 @@ git-standup --format compact
 git-standup --format markdown
 ```
 
-```markdown
+```text
 ## Standup — April 15, 2026
 
 **react-node-editor** (4 commits)
