@@ -1,162 +1,147 @@
-<div align="center">
+# git-standup
 
-# 📋 git-standup
+> **One command. Everything you shipped yesterday.**
 
-**Your daily standup, written by your git history.**
+`npx git-standup` scans all your local git repositories and shows every commit you made — grouped by repo, colored for readability. No setup, no config files, no external dependencies.
 
-Never stare blankly at "what did you do yesterday?" again. `git-standup` scans your repos, groups your commits, and generates a beautiful report ready to share — in seconds.
-
-[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![npx](https://img.shields.io/badge/run%20with-npx-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/git-standup)
-
-<img src=".github/demo.svg" alt="git-standup demo" width="700"/>
-
-</div>
+<p align="center">
+  <img src=".github/demo.svg" alt="git-standup demo" />
+</p>
 
 ---
 
-## Why git-standup?
-
-Daily standups are valuable. Trying to *remember* what you did is not.
-
-`git-standup` reads your actual commit history — across all your repos — and formats it into a clean, readable report. Use it to prep for standups, write weekly summaries, or just track your own momentum.
+## Quick start
 
 ```bash
 npx git-standup
 ```
 
----
-
-## Features
-
-- **Multi-repo scanning** — Automatically finds all git repos under a directory, no config needed
-- **Flexible time ranges** — Yesterday, last week, a specific date — any range `git log` understands
-- **Three output formats** — Terminal (full), compact one-liner, or Markdown for Slack/Notion
-- **Commit type coloring** — `feat` (green), `fix` (red), `docs` (blue), `refactor` (yellow) — at a glance
-- **Author filtering** — See your commits, or anyone on the team
-- **Zero dependencies beyond git** — Works on any machine with Node 20 and git installed
+That's it. It auto-detects your git email and searches `~/` for all repos up to 3 levels deep.
 
 ---
 
-## Quick Install
+## Example output
+
+```
+Searching for git repos in ~/...
+Found 12 repos. Scanning commits since "yesterday" by mario@example.com...
+
+~/projects/invoice-gen     (3 commits)
+  a1b2c3d  10:42  feat: add PDF export route
+  d4e5f6a  09:15  fix: line items total calculation
+  b7c8d9e  08:50  chore: update dependencies
+
+~/projects/api-server      (1 commit)
+  f1a2b3c  11:30  fix: rate limiting middleware not applying
+
+~/projects/dashboard       (2 commits)
+  c4d5e6f  14:22  feat: add dark mode toggle
+  e7f8a9b  13:10  refactor: extract chart components
+
+6 commits across 3 repositories
+```
+
+---
+
+## Flags
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--since=<value>` | `yesterday` | Time range. Accepts `yesterday`, `1week`, `3days`, `2024-01-15` |
+| `--author=<email>` | `git config user.email` | Filter commits by author email |
+| `--dir=<path>` | `~/` | Root directory to search for repos |
+| `--depth=<n>` | `3` | How many directory levels deep to search |
+| `--format=markdown` | — | Output Markdown for pasting into Slack or Notion |
+| `--help`, `-h` | — | Show help |
+
+### Examples
 
 ```bash
-# Run instantly with npx
+# Default: yesterday's commits across ~/
 npx git-standup
 
-# Install globally for daily use
-npm install -g git-standup
+# Last week
+npx git-standup --since=1week
+
+# Specific date
+npx git-standup --since=2024-06-01
+
+# Only search a specific folder, 2 levels deep
+npx git-standup --dir=~/projects --depth=2
+
+# Override author (useful on shared machines)
+npx git-standup --author=mario@example.com
+
+# Markdown output for Slack standup posts
+npx git-standup --format=markdown
 ```
 
 ---
 
-## Usage
+## Markdown output (for Slack / Notion)
 
 ```bash
-# What did I do yesterday? (default)
-git-standup
-
-# Last 3 days
-git-standup --since "3 days ago"
-
-# This entire week
-git-standup --since "monday"
-
-# Scan all sibling repos (~/projects/*)
-git-standup --all
-
-# Search in a specific directory
-git-standup --path ~/work/projects --depth 3
-
-# Filter by author
-git-standup --author "Mario Tavarez"
-
-# Export as Markdown (paste to Slack / Notion)
-git-standup --format markdown
-
-# Compact mode (one line per repo)
-git-standup --format compact
+npx git-standup --format=markdown
 ```
 
-### Example Output
+Produces:
 
-```
-  Daily Standup — Tuesday, April 15, 2026
-  3 repos · 11 commits · mario.tavarez
-  ─────────────────────────────────────────────────────
+```markdown
+## Standup — Wednesday, April 16, 2026
 
-  react-node-editor  (4 commits)
-    a1b2c3  feat: add drag-and-drop node palette
-    b2c3d4  fix: edge connection handles on touch devices
-    c3d4e5  refactor: extract node data types to types/
-    d4e5f6  style: improve dark theme contrast
+**What I did:**
 
-  devpulse  (4 commits)
-    e5f6g7  feat: add hardcoded-secret pattern scanner
-    f6g7h8  refactor: extract check runner to lib/
-    g7h8i9  fix: semver comparison for major versions
-    h8i9j0  docs: update README with usage examples
+**`~/projects/invoice-gen`**
+- `a1b2c3d` 10:42  feat: add PDF export route
+- `d4e5f6a` 09:15  fix: line items total calculation
+- `b7c8d9e` 08:50  chore: update dependencies
 
-  ai-review-cli  (3 commits)
-    i9j0k1  feat: add ai-review explain command
-    j0k1l2  fix: demo mode mock data quality
-    k1l2m3  test: add unit tests for formatter
+**`~/projects/api-server`**
+- `f1a2b3c` 11:30  fix: rate limiting middleware not applying
 
-  ─────────────────────────────────────────────────────
-  Scanned 3 repos in ~/projects  ·  Elapsed: 0.8s
-  Run with --format markdown to copy to Slack/Notion
+> 4 commits across 2 repositories
 ```
 
-### Markdown Output (for Slack/Notion)
+Paste directly into your Slack standup thread or Notion daily note.
+
+---
+
+## Shell alias tip
+
+Add this to your `~/.zshrc` or `~/.bashrc`:
 
 ```bash
-git-standup --format markdown
+alias standup="npx git-standup"
 ```
 
-```text
-## Standup — April 15, 2026
+Then just run:
 
-**react-node-editor** (4 commits)
-- feat: add drag-and-drop node palette
-- fix: edge connection handles on touch devices
-
-**devpulse** (4 commits)
-- feat: add hardcoded-secret pattern scanner
-- refactor: extract check runner to lib/
+```bash
+standup
+standup --since=1week
+standup --format=markdown
 ```
 
 ---
 
-## Commit Type Colors
+## How it works
 
-| Type | Color | Meaning |
-|---|---|---|
-| `feat` | 🟢 Green | New feature |
-| `fix` | 🔴 Red | Bug fix |
-| `docs` | 🔵 Blue | Documentation |
-| `refactor` | 🟡 Yellow | Code refactor |
-| `test` | 🩵 Cyan | Tests |
-| `chore` | ⬜ Dim | Maintenance |
-| `perf` | 🟠 Orange | Performance |
+1. **Finds repos** — walks the directory tree from `~/` (or `--dir`) up to `--depth` levels, detecting `.git` folders
+2. **Queries git** — runs `git log` with `--since`, `--author`, and `--no-merges` in each repo
+3. **Groups output** — repos with no matching commits are silently skipped
+4. **Prints results** — colored terminal output or clean Markdown
+
+Zero runtime dependencies. Pure Node.js built-ins: `child_process`, `fs`, `path`, `os`.
 
 ---
 
-## Tech Stack
+## Requirements
 
-| Technology | Version | Purpose |
-|---|---|---|
-| Node.js | 20+ | Runtime |
-| TypeScript | 5.7 | Strict type safety |
-| simple-git | 3 | Git log parsing |
-| Commander | 12 | CLI argument parsing |
-| Chalk | 5 | Terminal colors |
-| Boxen | 8 | Bordered output boxes |
-| dayjs | 1.11 | Date formatting |
+- Node.js 20+
+- Git installed and on `PATH`
 
 ---
 
 ## License
 
-MIT © [Mario Tavarez](https://github.com/mariotavarez)
+MIT © [mariotavarez](https://github.com/mariotavarez)

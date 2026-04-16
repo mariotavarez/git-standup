@@ -1,34 +1,33 @@
 {
   "name": "git-standup",
   "version": "1.0.0",
-  "description": "Generate beautiful standup reports from your git history",
+  "description": "See all your git commits from yesterday across every local repo — perfect for daily standups",
   "type": "module",
   "bin": {
-    "git-standup": "./dist/cli.js"
+    "git-standup": "./dist/index.js"
   },
   "scripts": {
-    "dev": "tsx src/cli.ts",
     "build": "tsc",
-    "start": "node dist/cli.js",
-    "lint": "eslint . --ext ts"
-  },
-  "dependencies": {
-    "boxen": "^8.0.0",
-    "chalk": "^5.3.0",
-    "commander": "^12.0.0",
-    "dayjs": "^1.11.0",
-    "glob": "^10.0.0",
-    "ora": "^8.0.0",
-    "simple-git": "^3.22.0"
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "tsx": "^4.7.0",
-    "typescript": "^5.7.0"
+    "@types/node": "^20.19.39",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=20"
+  },
+  "keywords": [
+    "git",
+    "standup",
+    "cli",
+    "productivity",
+    "daily-standup"
+  ],
+  "author": "mariotavarez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariotavarez/git-standup.git"
   }
 }
